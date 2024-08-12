@@ -1,0 +1,12 @@
+<div class="tela-disciplinas">
+  <div class="curso-header">
+    <h1>Curso: {{ nomeCurso }}</h1>
+  </div>
+  <div *ngFor="let semestre of semestres" class="semestre">
+    <h2>Semestre {{ semestre.semestre }}</h2>
+    <ul>
+      <li *ngFor="let disciplina of semestre.disciplinas">Disciplina: {{ disciplina }}</li>
+    </ul>
+    <hr />
+  </div>
+</div>

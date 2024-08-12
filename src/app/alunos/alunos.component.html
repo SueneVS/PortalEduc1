@@ -1,0 +1,30 @@
+<div class="listagem-alunos">
+  <div class="pesquisa">
+    <input type="text" [formControl]="searchControl" placeholder="Pesquisar por nome ou email">
+    <button (click)="pesquisar()">Pesquisar</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+        <th>Curso</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aluno of filteredAlunos">
+        <td>{{ aluno.nome }}</td>
+        <td>{{ aluno.cpf }}</td>
+        <td>{{ aluno.email }}</td>
+        <td>{{ aluno.curso }}</td>
+        <td>
+          <button [routerLink]="['/cadastro']" [state]="{ aluno }">Editar</button>
+          <button (click)="excluirAluno(aluno)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

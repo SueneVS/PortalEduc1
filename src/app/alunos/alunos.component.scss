@@ -1,0 +1,68 @@
+.listagem-alunos {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .pesquisa {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 14px;
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    td {
+      &:last-child {
+        text-align: center;
+      }
+
+      button {
+        padding: 6px 12px;
+        font-size: 12px;
+        cursor: pointer;
+        margin-right: 5px;
+
+        &.editar {
+          background-color: #28a745;
+          color: #fff;
+          border: none;
+        }
+
+        &.excluir {
+          background-color: #dc3545;
+          color: #fff;
+          border: none;
+        }
+      }
+    }
+  }
+}

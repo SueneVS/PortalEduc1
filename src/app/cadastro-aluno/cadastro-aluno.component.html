@@ -1,0 +1,53 @@
+<div class="cadastro-usuario">
+  <form [formGroup]="formCadastro">
+    <fieldset>
+      <label>Nome Completo *</label>
+      <input type="text" formControlName="nome">
+      <span *ngIf="(formCadastro.controls['nome'].dirty || formCadastro.controls['nome'].touched) &&
+        formCadastro.controls['nome'].errors?.['required']" appLabelErro>Nome obrigatório</span>
+      <span *ngIf="(formCadastro.controls['nome'].dirty || formCadastro.controls['nome'].touched) &&
+        formCadastro.controls['nome'].errors?.['nomeCompleto']" appLabelErro>Nome inválido</span>
+    </fieldset>
+    <fieldset>
+      <label>CPF *</label>
+      <input type="text" formControlName="cpf">
+      <span *ngIf="(formCadastro.controls['cpf'].dirty || formCadastro.controls['cpf'].touched) &&
+        formCadastro.controls['cpf'].errors?.['required']" appLabelErro>CPF obrigatório</span>
+    </fieldset>
+    <fieldset>
+      <label>E-mail *</label>
+      <input type="mail" formControlName="email">
+      <span *ngIf="(formCadastro.controls['email'].dirty || formCadastro.controls['email'].touched) &&
+        formCadastro.controls['email'].errors?.['required']" appLabelErro>Email obrigatório</span>
+    </fieldset>
+    <fieldset>
+      <label>Celular *</label>
+      <input type="text" formControlName="celular">
+      <span *ngIf="(formCadastro.controls['celular'].dirty || formCadastro.controls['celular'].touched) &&
+        formCadastro.controls['celular'].errors?.['required']" appLabelErro>Celular obrigatório</span>
+    </fieldset>
+    <fieldset>
+      <label>Curso *</label>
+      <select type="text" formControlName="curso">
+        <option value="FE">Front-End</option>
+        <option value="BE">Back-End</option>
+        <option value="FS">Full-Stack</option>
+        <option value="FS">UI/UX</option>
+      <span *ngIf="(formCadastro.controls['curso'].dirty || formCadastro.controls['curso'].touched) &&
+        formCadastro.controls['curso'].errors?.['required']" appLabelErro>Curso obrigatório</span>
+      </select>
+    </fieldset>
+    <div class="botoes">
+      <button
+        type="button"
+        class="cadastrar"
+        (click)="cadastrar()"
+        [disabled]="!formCadastro.valid"
+        [routerLink]="['/alunos']"
+      >
+        Salvar
+      </button>
+    </div>
+  </form>
+</div>
+

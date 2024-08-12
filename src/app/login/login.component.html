@@ -1,0 +1,30 @@
+<div class="login">
+  <form [formGroup]="formLogin">
+
+    <fieldset>
+      <label>E-mail *</label>
+      <input type="mail" formControlName="email">
+      <span *ngIf="(formLogin.controls['email'].dirty || formLogin.controls['email'].touched) &&
+        formLogin.controls['email'].errors?.['required']" >Campo obrigatório</span>
+    </fieldset>
+
+    <fieldset>
+      <label>Senha *</label>
+      <input type="text" formControlName="senha">
+      <span *ngIf="(formLogin.controls['senha'].dirty || formLogin.controls['senha'].touched) &&
+        formLogin.controls['senha'].errors?.['required']"> Campo obrigatório</span>
+    </fieldset>
+
+    <div class="botoes">
+      <button
+        type="button"
+        class="entrar"
+        [routerLink]="['/home']"
+        [disabled]="!formLogin.valid"
+      >
+        Entrar
+      </button>
+      <button type="button" class="esqueciSenha" (click)="esqueciSenha()">Esqueci a senha</button>
+    </div>
+  </form>
+</div>

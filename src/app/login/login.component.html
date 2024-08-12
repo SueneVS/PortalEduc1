@@ -1,25 +1,24 @@
 <div class="login">
-  <form [formGroup]="formLogin">
+  <form [formGroup]="formLogin" (ngSubmit)="entrar()">
 
     <fieldset>
       <label>E-mail *</label>
-      <input type="mail" formControlName="email">
+      <input type="email" formControlName="email">
       <span *ngIf="(formLogin.controls['email'].dirty || formLogin.controls['email'].touched) &&
-        formLogin.controls['email'].errors?.['required']" >Campo obrigatório</span>
+        formLogin.controls['email'].errors?.['required']">Campo obrigatório</span>
     </fieldset>
 
     <fieldset>
       <label>Senha *</label>
-      <input type="text" formControlName="senha">
+      <input type="password" formControlName="senha">
       <span *ngIf="(formLogin.controls['senha'].dirty || formLogin.controls['senha'].touched) &&
-        formLogin.controls['senha'].errors?.['required']"> Campo obrigatório</span>
+        formLogin.controls['senha'].errors?.['required']">Campo obrigatório</span>
     </fieldset>
 
     <div class="botoes">
       <button
-        type="button"
+        type="submit"
         class="entrar"
-        [routerLink]="['/home']"
         [disabled]="!formLogin.valid"
       >
         Entrar

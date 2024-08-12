@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { DisciplinaService } from '../shared/services/disciplina/disciplina.service';
+import { Disciplina } from '../shared/interfaces/disciplinas';
+
+
 
 @Component({
   selector: 'app-home',
@@ -7,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
+
 })
+
 export class HomeComponent implements OnInit {
   proximasAtividades = [
     { titulo: 'Entrega de trabalho da disciplina API', descricao: 'Envio do trabalho para a disciplina de API.', data: '25/08/2024' },
@@ -15,19 +21,16 @@ export class HomeComponent implements OnInit {
     { titulo: 'Chat com o mentor', descricao: 'Conversa com o mentor para orientação.', data: '31/08/2024' }
   ];
 
-  minhasDisciplinas = [
-    { nome: 'API', semestre: 1 },
-    { nome: 'HTML', semestre: 1 },
-    { nome: 'CSS', semestre: 2 },
-    { nome: 'JavaScript', semestre: 2 }
-  ];
-
+  minhasDisciplinas: Disciplina[] = [];
   cursosExtras = [
     { nome: 'Curso de Angular', descricao: 'Curso para aprimorar conhecimentos em Angular.' },
     { nome: 'Curso de TypeScript', descricao: 'Curso sobre TypeScript para desenvolvimento web.' }
   ];
 
-  ngOnInit(): void {
+  constructor(private disciplinaService: DisciplinaService) {}
 
+  ngOnInit(): void {
+    const cursoId = sessionStorage.getItem('cursoId') as 'FrontEnd' | 'FullStack' | 'BackEnd' || 'FrontEnd';
+    this.minhasDisciplinas = this.disciplinaService.getDisciplinasCurso(cursoId);
   }
 }

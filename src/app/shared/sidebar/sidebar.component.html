@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<nav class="sidebar">
+  <ul>
+    <li><a [routerLink]="['/disciplinas']" routerLinkActive="active">Disciplinas</a></li>
+    <li><a>Atividades Avaliativas</a></li>
+    <li><a>Solicitações</a></li>
+    <li><a>Biblioteca Online</a></li>
+    <li *ngIf="Admin()"><a [routerLink]="['/alunos']" routerLinkActive="active">Listagem de Alunos</a></li>
+  </ul>
+</nav>

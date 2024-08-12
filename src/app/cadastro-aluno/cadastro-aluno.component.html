@@ -29,10 +29,7 @@
     <fieldset>
       <label>Curso *</label>
       <select type="text" formControlName="curso">
-        <option value="FE">Front-End</option>
-        <option value="BE">Back-End</option>
-        <option value="FS">Full-Stack</option>
-        <option value="FS">UI/UX</option>
+        <option *ngFor="let curso of cursos" [value]="curso.id">{{ curso.turma }}</option>
       <span *ngIf="(formCadastro.controls['curso'].dirty || formCadastro.controls['curso'].touched) &&
         formCadastro.controls['curso'].errors?.['required']" appLabelErro>Curso obrigatório</span>
       </select>

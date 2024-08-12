@@ -1,6 +1,8 @@
-# PORTAL EDUC - PARTE 1
+# PORTAL EDUC - PARTE 2
 
 Esta aplicação web foi desenvolvida para gerenciar informações sobre disciplinas e alunos em um ambiente educacional. O sistema permite o login de usuários, visualização e cadastro de alunos, e exibição de disciplinas por semestre.
+
+**Foi acrescentado um header e um sidebar além das algumas funcionalidades:**
 
 ## Funcionalidades
 
